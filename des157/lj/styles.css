@@ -1,7 +1,46 @@
+:root{
+    --color1: #22c1c3;
+    --color2: #fdbb2d;
+}
+
+body{
+    margin:auto;
+    background: rgb(34,193,195);
+    background: linear-gradient(45deg, var(--color1) 0%, var(--color2) 100%);
+}
+
+h1, h2, h3, h4{
+    color:rgb(107, 107, 107);
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1{
+    font-weight:bold;
+    text-align: center;
+    padding: 2%;
+    background-color:whitesmoke;
+}
+
+article{
+    color:rgb(107, 107, 107);
+    font-family: 'Poppins', sans-serif;
+    margin: 10px auto 10px auto;
+    padding: 5% 5% 5% 8%;
+    width: 40%;
+    background-color: hsl(0, 0%, 100%, 50%);
+}
+
 p {
-    width: 80ch;
+    margin-bottom: 1em;
+    width: 50ch;
 }
 
 img {
-    width: 80ch;
+    width: 50ch;
+}
+
+footer{
+    padding: 20px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
 }
