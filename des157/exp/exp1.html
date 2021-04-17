@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        p{
+            width:50ch;
+        }
+    </style>
+    <title>Experiment 1</title>
+</head>
+<body>
+    <h1>Experiment 1</h1>
+    <h2>Pascal's Triangle</h2>
+    <p>The algorithm embedded into this page's script outputs the first ten rows of Pascal's Triangle to the console. Since I mainly used "for loops" for this algorithm I also decided to label each row as even or odd to also demonstrate the use of conditional statements AKA "if statements".
+    </p>
+    <script>
+        //The follow script outputs the first 10 rows of Pascal's Triangle
+
+        //Create the row and nextrow variables
+        var row = [1, 1];
+        var nextrow= [];
+        /*Create labels for even and odd rows 
+        so that the formatting of these labels can be changed quickly if needed*/
+        var odd= "(odd row)"
+        var even= "(even row)"
+
+        //Output the first row of Pascal's triangle
+        console.log(`1 ${odd}`);
+        //Output the second row of Pascal's triangle
+        console.log(`1,1 ${even}`);
+
+        //With the first two rows output, output the rest algorithmically
+        for (r=0; r<8; r++){
+            //Begin next row with 1
+            nextrow=[1];
+            //Construct the new row
+            for (a=1; a<row.length; a++){
+                nextrow.push(row[a-1]+row[a]);
+            }
+            //End the next row with 1
+            nextrow.push(1);
+
+            //Clear row
+            row=[]
+            //Push the elements of newrow to row
+            for (b=0; b<nextrow.length; b++){
+                row.push(nextrow[b])
+            }
+            //Output the row
+            if (row.length%2==0){
+                console.log(`${row} ${even}`);
+            } else {
+                console.log(`${row} ${odd}`);
+            }
+            
+        }
+    </script>
+</body>
+</html>
