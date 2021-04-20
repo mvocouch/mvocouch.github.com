@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exp 2.</h1>
+
+    <div>
+        <p>I believe a synonym for the word you entered is:</p>
+    </div>
+
+    <script>
+        /*Assignment Requirement #6: The following script prompts the user to enter a word, then accesses the Big Huge Thesaurus API
+         to get a list of synonyms and antonyms. Once it has the list the removeAntonyms function is called
+         and the resulting list is stored to the variable "synon".
+         A random syononym is selected from synon is added to the inner HTML of the body's div.*/
+
+        //Assignment requirement #2: Prompt the user
+        var myWord = prompt("Please input a word: ");
+        
+        //Assignment requirement #3: Use Variables
+        var myDiv = document.querySelector("div");
+        var request = new XMLHttpRequest();
+
+        //Assignment requirement #5: Have at least one function that returns data that is used by another function
+        function removeAntonyms(list){
+            //Assigment requirement #4: Use flow control structures
+            for (var i=0; i<list.length; i++){
+                if (list[i].includes("(ant.)")){
+                    console.log(`Antonym Removed: ${list[i]}`)
+
+                }
+            }
+        }
+
+        request.open("GET", `https://words.bighugelabs.com/api/2/9b875f49c35c18721479d1190501a3ab/${myWord}s/`, true);
+
+        request.onload = function(){
+            var bodyText = this.response;
+            //Assignment requirement #3: Use Arrays
+            //Assignment Optional #8: Other string functions
+            var lines = bodyText.split(/\n/g);
+            var synon = removeAntonyms(lines);
+
+            console.log(lines);
+            //Assignment Optional #7: Introduce Randomness
+            myDiv.innerHTML = lines[Math.floor(Math.random()*lines.length)];
+        }
+
+        request.send();
+
+        
+    </script>
+</body>
+</html>
