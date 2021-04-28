@@ -127,7 +127,6 @@
     //Display overlay when the start button is clicked
     start.addEventListener('click', function(event){
         event.preventDefault();
-        const thisBtn = event.target.id;
         document.querySelector(`.q${sectionNum}`).className = `q${sectionNum} showing`;
     })
 
@@ -142,6 +141,10 @@
                 //If it's not the last section then go to the next section
                 sectionNum++;
                 document.getElementById(`q${sectionNum}`).className = `q${sectionNum} showing`;
+
+                const nextInput = document.getElementById(`q${sectionNum}`).querySelector('article input');
+                nextInput.focus();
+
             }else{
                 //If it is the last section hide the start button and move the Cauldron graphic over to the left to make room for the output
                 document.getElementById('start').className = 'start hidden';
