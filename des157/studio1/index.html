@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Crafty Cauldron</title>
+    <script src = "script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+Double+Pica&family=Princess+Sofia&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <section id= "headerText">
+            <h1>The Crafty Cauldron</h1>
+            <h2>A Potion Brewing Madlib</h2>
+        </section>
+        <div id= "glow"></div>
+        <img src= "images/cauldron.gif" class= "cauldron" alt="cauldron">
+        <a href><img src="images/start.png" class= "start showing" id="start" alt="Start Button"></a>
+    </header>
+        <main>
+            <form class="myform">
+                <section id="q1" class="q1 hidden">
+                    <article>
+                        <h3>What intentions do you instill in your brew ?</h3>
+                
+                        <input type="radio" id="good" name="intentions" value="good">
+                        <label for= "good">Peace, good will, and benevolence.</label><br>
+    
+                        <input type="radio" id="evil" name="intentions" value="evil">
+                        <label for="evil">Wrath, cursed thoughts, and malevolence.</label><br>
+    
+                        <a href><img src="images/next.png" class="next" id="1" alt="Next Button"></a><br>
+                        <label class = "page">Page 1 of 6</label><button class="center" id="1">Close</button>
+                    </article>
+                </section>
+    
+                <section id="q2" class="q2 hidden">
+                    <article>
+                        <h3 id=q2>What is the name of the soul you intend to give this potion to?</h3>
+                        <input type="text" name="target" placeholder="Name: Anna Sephiran" required><br>
+    
+                        <a href><img src="images/next.png" class="next" id="2" alt="Next Button"></a><br>
+                        <label class = "page">Page 2 of 6</label><button class="center" id="2">Close</button>
+                    </article>
+                </section>
+
+                <section id="q3" class="q3 hidden">
+                    <article>
+                        <h3>What do you manifest with this potion?</h3>
+                        <input type="text" name="noun1" placeholder="Noun: Love" required><br>
+    
+                        <a href><img src="images/next.png" class="next" id="3" alt="Next Button"></a><br>
+                        <label class = "page">Page 3 of 6</label><button class="center" id="3">Close</button>
+                    </article>
+                </section>
+
+                <section id="q4" class="q4 hidden">
+                    <article>
+                        <h3>You will need an ingredient which embodies the essence of your target.<br> What will you use?</h3>
+                        <input type="text" name="noun2" placeholder="Noun: Lock of hair" required><br>
+    
+                        <a href><img src="images/next.png" class="next" id="4" alt="Next Button"></a><br>
+                        <label class = "page">Page 4 of 6</label><button class="center" id="4">Close</button>
+                    </article>
+                </section>
+
+                <section id="q5" class="q5 hidden">
+                    <article>
+                        <h3>What location reminds you of your target?</h3>
+                        <input type="text" name="place" placeholder="Place: The Beach" required><br>
+    
+                        <a href><img src="images/next.png" class="next" id="5" alt="Next Button"></a><br>
+                        <label class = "page">Page 5 of 6</label><button class="center" id="5">Close</button>
+                    </article>
+                </section>
+
+                <section id="q6" class="q6 hidden">
+                    <article>
+                        <h3>What scent do you associate with your target?</h3>
+                        <input type="text" name="scent" placeholder="Scent: Mint" required><br>
+    
+                        <a href><img src="images/next.png" class="next" id="6" alt="Next Button"></a><br>
+                        <label class = "page">Page 6 of 6</label><button class="center" id="6">Close</button>
+                    </article>
+                </section>
+            </form>
+
+            <section id="output" class="output hidden">
+                <article>
+                    
+                </article>
+            </section>
+    
+        </main>
+
+        <footer>
+            <script> </script>
+        </footer>
+</body>
+</html>
