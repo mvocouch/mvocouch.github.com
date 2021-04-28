@@ -83,7 +83,7 @@
         
         const potionTitle = `<h3>Potion of ${capitalize(noun1)} for ${target}<h3>`;
         const ingredients = `<ul><li>Ingredients:</li><li>${target}'s ${noun2}</li><li>A sachet of dried ${flower}</li><li>${capitalize(ingredientAdj1.concat(" ", ingredient1))}</li><li>${capitalize(ingredientAdj2.concat(" ", ingredient2))}</li></ul>`;
-        const instructions1 = `<p>To draw energies of ${noun1} into the life of ${target} gather the ingredients listed above.<br> Make a small altar at ${place} and place the ${noun2},<br> ${ingredientAdj1.concat(" ", ingredient1)}, and ${ingredientAdj2.concat(" ", ingredient2)} on the altar.<br>Introduce ${scent} into the air by lighting a candle or an incense or by wafting an object<br> scented with ${scent} through the air and speak the incantation:</p>`;
+        const instructions1 = `<p>To draw energies of ${noun1} into the life of ${target} gather the ingredients listed above.<br> Make a small altar at ${place} and steep the dried ${flower},<br>${ingredientAdj1.concat(" ", ingredient1)}, and ${ingredientAdj2.concat(" ", ingredient2)} in a tea.<br>Place the ${noun2} and the tea at the altar.<br>Introduce ${scent} into the air by lighting a candle or an incense or by wafting an object<br> scented with ${scent} through the air and speak the incantation:</p>`;
         
         let incantation;
 
@@ -93,7 +93,7 @@
             incantation = `<p>With ${ingredient1} ${ingredientAdj1},<br>${ingredient2} ${ingredientAdj2},<br>and ${flower} dried,<br>I speak to you, Forces of Light, and I guide, <br>To the one called ${target}, it is they I draw you to,<br>So upon their drinking of this brew,<br>Bless them, grant them with the fortunate fate of ${noun1},<br>Bless them, grant them with the fortunate fate of ${noun1},<br>Bless them, grant them with the fortunate fate of ${noun1}!</p>`;
         }
 
-        const instructions2 = `<p>With these steps your ingredients are now imbued with your ${intentions} intentions<br>and they can be combined to make your potion.<br>Steep the dried ${flower}, ${ingredientAdj1.concat(" ", ingredient1)}, and ${ingredientAdj2.concat(" ", ingredient2)} in a tea.<br> Ensure the drinker imbibes the potion by midnight<br>on the evening of the next new moon.<br><br>Your wishes will be brought to bear by the end of the following lunar cycle.</p>`
+        const instructions2 = `<p>With these steps your potion is now imbued with your ${intentions} intentions.<br>Ensure the drinker imbibes the potion by midnight<br>on the evening of the next new moon.<br><br>Your wishes will be brought to bear by the end of the following lunar cycle.</p>`
 
         let potionRecipe = potionTitle.concat(ingredients, instructions1, incantation, instructions2);
 
