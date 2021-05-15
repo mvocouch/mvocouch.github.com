@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Sue+Ellen+Francisco&display=swap" rel="stylesheet">
+
+    <meta name="referrer" content="origin">
     
     <title>Haunt This House</title>
     <style>
@@ -19,11 +21,14 @@
             position: sticky;
             top: 0;
             padding-top: 3em;
-            background-color: white;
+            background: rgb(0,0,0);
+            background: linear-gradient(180deg, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
         }
 
         body{
             font-family: 'Sue Ellen Francisco', sans-serif;
+            color: white;
+            background-color: black;
         }
 
         h1{
@@ -48,6 +53,7 @@
 
         p{
             font-size: 1.75em;
+            padding-left: 1em;
         }
 
         ul{
@@ -73,6 +79,7 @@
             padding: 10px;
             margin-left: auto;
             margin-right: auto;
+            max-width: 100%;
         }
 
         #swatches li{
@@ -83,17 +90,16 @@
             border-radius: 30px;
             margin: 5px;
         }
-
     </style>
 </head>
 <header id = "header">
     <h1>HAUNT THIS HOUSE</h1>
     <div class="table">
         <ul id="nav">
-            <li>Sketch</li>
-            <li>Refined Sketch</li>
-            <li>Modeled and Rigged</li>
-            <li>Character Turn-Around</li>
+            <li id="sketch_btn">Sketch</li>
+            <li id="refined_btn">Refined Sketch</li>
+            <li id="modeled_btn">Modeled and Rigged</li>
+            <li id="turnaround_btn">Character Turn-Around</li>
         </ul>
     </div>
 </header>
@@ -142,8 +148,8 @@
     </section>
 
     <section id ="turnaround">
-        <p>Below is an animated turn-around which shows what Leah looks like from all angles. To view some of the different 
-            color palettes that I considered for her character throughout the design process, click on the colored circles.
+        <p>Below is an animated turn-around which shows what Leah looks like from all angles. <!-- To view some of the different 
+            color palettes that I considered for her character throughout the design process, click on the colored circles. -->
         </p>
         <h2>Character Turn-Around</h2>
         <div class="table">
@@ -162,12 +168,16 @@
         let nav_bar = {"sketch":0, "refined":0, "modeled":0, "turnaround":0};
         
         Object.entries(nav_bar).forEach(([key, value]) => {
+            //Set the scroll location for each element in the navigation bar
             const header_rect = document.getElementById("header").getBoundingClientRect();
             const section_rect = document.getElementById(key).getBoundingClientRect();
-            nav_bar[key] = section_rect.y;
+            nav_bar[key] = section_rect.y + 25;
             nav_bar[key] -= header_rect.height;
+        
+            document.getElementById(`${key}_btn`).addEventListener("click", function (){
+                scrollTo(0, nav_bar[key])
+            });
         });
-        console.log(nav_bar);
 
         //Define variable to store different colors for each color palette
         const colors = [
@@ -255,4 +265,12 @@
         }
     </script>
 </body>
+<footer>
+    <div class="table">
+        <ul>
+            <li><a href="https://validator.w3.org/check?uri=referer">Valid HTML</a></li>
+            <li><a href="https://jigsaw.w3.org/css-validator/check/referer">Valid CSS</a></li>    
+        </ul>
+    </div>
+</footer>
 </html>
