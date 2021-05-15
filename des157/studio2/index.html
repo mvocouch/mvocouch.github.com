@@ -164,21 +164,31 @@
     
     <script>
 
-        let nav_bar = {"sketch":0, "refined":0, "modeled":0, "turnaround":0};
-        
-        Object.entries(nav_bar).forEach(([key, value]) => {
-            //Set the scroll location for each element in the navigation bar
-            const header_rect = document.getElementById("header").getBoundingClientRect();
-            const section_rect = document.getElementById(key).getBoundingClientRect();
-            nav_bar[key] = section_rect.y + 25;
-            nav_bar[key] -= header_rect.height;
-        
-            document.getElementById(`${key}_btn`).addEventListener("click", function (){
-                scrollTo(0, nav_bar[key])
+        let nav_bar = ["sketch", "refined", "modeled", "turnaround"];
+
+        document.addEventListener("DOMContentLoaded", function(){
+            document.body.scrollTop = 0; //For Safari
+            document.documentElement.scrollTop = 0; //For Chrome, Firefox, IE and Opera
+
+            //For each button in the navigation bar
+            nav_bar.forEach(value => {
+                
+                //Add an event listener for when the button is clicked
+                document.getElementById(`${value}_btn`).addEventListener("click", function (){
+                    //Get the Bounding Rect of the header and the section
+                    const header_rect = document.getElementById("header").getBoundingClientRect();
+                    const section_rect = document.getElementById(value).getBoundingClientRect();
+                    
+                    //Offset the amount of scroll by the height of the header
+                    const scroll_offest = header_rect.height;
+                    nav_bar[value] = section_rect.y;
+                    nav_bar[value] -= scroll_offest;
+
+                    //Scroll by the calculated amount
+                    scrollBy(0, nav_bar[value])
+                });
             });
         });
-
-        console.log(nav_bar);
 
         //Define variable to store different colors for each color palette
         const colors = [
