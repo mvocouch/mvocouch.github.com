@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sue+Ellen+Francisco&display=swap" rel="stylesheet">
+    
+    <title>Haunt This House</title>
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+
+        header{
+            position: sticky;
+            top: 0;
+            padding-top: 3em;
+            background-color: white;
+        }
+
+        body{
+            font-family: 'Sue Ellen Francisco', sans-serif;
+        }
+
+        h1{
+            font-size: 3.5em;
+            font-weight: lighter;
+            text-align: center;
+            line-height: 0;
+        }
+        
+        h2{
+            font-size: 2em;
+            font-weight: lighter;
+            text-align: center;
+            line-height: 0;
+        }
+
+        section{
+            margin: auto;
+            width: 50%;
+            padding-bottom: 1em;
+        }
+
+        p{
+            font-size: 1.75em;
+        }
+
+        ul{
+            display: flex;
+            flex-direction: row;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li{
+            padding-left: 0.5em;
+            padding-right: 0.5em;
+            font-size: 2em;
+        }
+
+        .table{
+            display: table;
+	        margin: 0 auto;
+        }
+
+        img {
+            display: block;
+            padding: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #swatches li{
+            width: 60px;
+            height: 60px;
+            padding: 0;
+            background-color: black;
+            border-radius: 30px;
+            margin: 5px;
+        }
+
+    </style>
+</head>
+<header id = "header">
+    <h1>HAUNT THIS HOUSE</h1>
+    <div class="table">
+        <ul id="nav">
+            <li>Sketch</li>
+            <li>Refined Sketch</li>
+            <li>Modeled and Rigged</li>
+            <li>Character Turn-Around</li>
+        </ul>
+    </div>
+</header>
+<body>
+
+    <section id = "sketch">
+        <p>Haunt This House is a game where the player is ghost living in an old house when a single mother and her two children move in.
+            One of the two parallel stories centers around this family and the unresolved emotional issues "haunting" each of the family members.
+            Meanwhile, the ghosts of the house have unresolved issues of their own... beyond, you know, being dead.
+        </p>
+    
+        <h2>Sketch</h2>
+        <img src = "images/sketch.jpg">
+    
+        <p>The emotional journey of the family is a semi-autobiographical representation of different stages of my own life. 
+            One of the characters that I identify with most strongly is the teenage daughter, Leah. (I swear it's not just because I am moody brat.) So, naturally, when I started designing characters for the game 
+            I decided to design her first. Above is a simple character sketch of Leah.</p>
+
+        <p>The initial design was very simple. The inspiration for Leah's name comes from a friend of mine, Alia. She was a very close friend of mine when I was going through this emotion stage of my life,
+            so I decided to give Leah long blonde hair just like my friend. I was unsure about what colors to use for her clothing,
+            but I knew I only needed a simple sketch to start modeling.</p>
+
+    </section>
+    
+    <section id = "refined">
+        <h2>Refined Character Sketch</h2>
+        <img src="images/refinedSketch.png">
+        <p>Next, I developed the painterly texture style of the character and started the iterative process of deciding on a color scheme for the character.
+            In the game the physical plane is depicted with warm colors and the spiritual plane is depicted with cool colors. Thus, it was important to me that 
+            every character be designed with a mix of cool and warm colors to indicate that the characters are not fully present in the physical world, but instead 
+            occupying a space both physical and spiritual.
+        </p>
+        <p>
+
+        </p>
+    </section>
+
+    <section id = "modeled">
+        <h2>Modeled and Rigged</h2>
+        <img src = "images/ModeledCharacter.png">
+        <p>The program I used to model and rig the character is the open-source modeling software Blender. Here 
+            is what Leah looks like the 3D viewport of Blender, in a basic T-pose, with her animatioin rig visible.
+            Developing Leah's appearance wasn't just important in terms of creating her character but it established 
+            an art style which will inform every subsequent stage of the game's design.
+        </p>
+    </section>
+
+    <section id ="turnaround">
+        <p>Below is an animated turn-around which shows what Leah looks like from all angles. To view some of the different 
+            color palettes that I considered for her character throughout the design process, click on the colored circles.
+        </p>
+        <h2>Character Turn-Around</h2>
+        <div class="table">
+            <ul id="swatches">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <img src= "images/palette0/0001.png" id="character">
+    </section>
+    
+    <script>
+
+        let nav_bar = {"sketch":0, "refined":0, "modeled":0, "turnaround":0};
+        
+        Object.entries(nav_bar).forEach(([key, value]) => {
+            const header_rect = document.getElementById("header").getBoundingClientRect();
+            const section_rect = document.getElementById(key).getBoundingClientRect();
+            nav_bar[key] = section_rect.y;
+            nav_bar[key] -= header_rect.height;
+        });
+        console.log(nav_bar);
+
+        //Define variable to store different colors for each color palette
+        const colors = [
+            ["#7a8266", "#a0416f", "#342827", "#d28c14"],
+            ["#7a0d3b", "#764272", "#191a40", "#cab958"],
+            ["#452350", "#5c0026", "#181940", "#9fb472"],
+            ["#648e7a", "#862145", "#362433", "#b2b06c"],
+            ["#ab9b60", "#b90046", "#372033", "#909065"],
+            ["#a98110", "#843036", "#1a1b1f", "#adb181"],
+            ["#599178", "#822042", "#1b1c21", "#b38d13"],
+            ["#5f8e79", "#522d4f", "#1b1c21", "#b38c13"]
+        ];
+
+        //Define variable to store the current color palette number
+        let paletteNum = colors.length - 1;
+
+        //Define variable to store the current frame
+        let frame = 0;
+        //Set a timer to update the frame
+        window.setInterval(updateFrame, 60);
+
+        //Get all swatches
+        const swatches = document.getElementById("swatches").getElementsByTagName("li");
+        updateSwatches();       
+
+        //Define the update frame function
+        function updateFrame(){
+            //Define rotation direction
+            const direction = "L";
+            
+            //Change frame number based on direction
+            if (direction === "L"){
+                frame--;
+            }
+            else if (direction === "R"){
+                frame++;
+            }
+            else{
+                console.log("Something went wrong with the direction variable in updateFrame()");
+            }
+            
+            //Get the character image from the document
+            const img = document.getElementById('character');
+            //Assign the img source to the new frame image
+            img.src = `images/palette${paletteNum}/${getZeroes()}${frame}.png`;
+        }
+
+        //Define the function to change the list of swatches colors
+        function updateSwatches(){
+            if (paletteNum == colors.length-1){
+                paletteNum = 0;
+            } else {
+                paletteNum++;
+            }
+
+            //For each of the swatches, change their style.backgroundColor to reflect the new palette
+            for(let s=0; s < swatches.length; s++){
+                swatches[s].style.backgroundColor= colors[paletteNum][s];
+            }
+        }
+
+        //Define getZeroes function that figures out how many zeroes need to be in the file name for the image frames
+        function getZeroes(){
+            let zeroes;
+
+            if (frame<1){
+                frame = 120;
+                zeroes = 0;
+            }
+            else if (frame<10){
+                zeroes = "000";
+            }
+            else if (frame<100){
+                zeroes = "00";
+            }
+            else if (frame<=120){
+                zeroes = "0";
+            }
+            else{
+                frame = 1;
+                zeroes = "000"
+            }
+
+            return zeroes;
+        }
+    </script>
+</body>
+</html>
