@@ -1,0 +1,47 @@
+:root{
+    --color1: #44096b;
+    --color2: #000000;
+}
+
+body{
+    margin:auto;
+    background: #44096b;
+    background: linear-gradient(45deg, var(--color1) 0%, var(--color2) 100%);
+}
+
+h1, h2, h3, h4{
+    color:rgb(32, 3, 17);
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1{
+    position: fixed;
+    font-weight:bold;
+    text-align: center;
+    padding: 2%;
+    background-color:whitesmoke;
+}
+
+article{
+    color:rgb(32, 3, 17);
+    font-family: 'Poppins', sans-serif;
+    margin: 50px auto 50px auto;
+    padding: 5% 5% 5% 8%;
+    width: 40%;
+    background-color: hsl(0, 0%, 100%, 50%);
+}
+
+p {
+    margin-bottom: 1em;
+    width: 50ch;
+}
+
+img {
+    width: 50ch;
+}
+
+footer{
+    padding: 20px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
