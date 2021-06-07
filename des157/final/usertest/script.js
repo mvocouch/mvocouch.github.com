@@ -328,6 +328,7 @@
       "MOON TIME SUN HERO QUEEN": new StoryBranch("MOON TIME SUN HERO QUEEN place holder text", {}),
     };
 
+    alert("Welcome to user testing! Please make notes of the following: How do you start the game? Is it hard to figure out how to start? Play a couple times and see if you can get different 'endings' or if you can find a series of actions that breaks the code. If you manage to 'break' the code please inspect the page and check the console log for the series of cards clicked. Thanks!");
     let current_branch = "start";
     setTimeout(function(){tree[current_branch].display_text();}, 2800);
     const deck = build_deck();
