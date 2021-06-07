@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="referrer" content="origin">
+    <title>User Test Results</title>
+</head>
+<body>
+    <h1>User Test Results</h1>
+
+    <article>
+        <section>
+        <h2>User Test Resulsts</h2>
+
+        <h3>How do you start the game?</h3>
+        <p>User response: I believe starting the game would be just choosing on a card or entering the website.</p>
+        <h3>Is it hard to figure out how to start?</h3> 
+        <p>User Response: I would say that it was not too difficult.</p>
+        <h3>Play a couple times and see if you can get different 'endings' or if you can find a series of actions that breaks the code.</h3>
+        <p>User Response: I did find some endings but I also saw series of events that broke the code</p>
+        <h3>If you manage to 'break' the code please inspect the page and check the console log for the series of cards clicked.</h3>
+        <p>User Response: I sent a video of it breaking and the console</p>
+
+        <h2>User Test Results Analysis:</h2>
+        <h3>Observation 1:</h3>
+        <p>It was suggested during the last feedback session that I may want to include an overlay of instructions on how to play the game. However, when discussing the project with my brother he disagreed. His reasoning was that the greatest appeal of the game is the mysteriousness of the atmosphere, and that instructional text would detract from the mystery. So, it was a priority of mine during testing to determine whether instructional text was necessary. The user didn’t seem to have any trouble figuring out that the way to progress through the game was by clicking on the cards.
+
+            I may still choose to create an instructional overlay, if time permits, but it won’t show up automatically when the game starts but instead when the user clicks a “?” icon that I will tuck in the corner along with a mute button. (Assuming I get around to adding sound)</p>
+        <h3>Observation 2:</h3>
+        <p>Additionally, I wanted to check if there were any story paths missing in the code, which is apparently the case, since the user very quickly found paths that “broke” the game. These paths were “TIME QUEEN SUN” and “TIME MOON SUN.” I will fix the paths discovered during user testing but I likely won’t go through the trouble of making sure every path works, since there are 120 possible different paths (this is an issue I had intended to address by coming up with a more advanced story algorithm that doesn’t cause factorial growth--- this wasn’t possible because of project delays and mental fog).</p>
+        <h3>Observation 3:</h3>
+        <p>There is some glitchy behavior that occurs if the user becomes impatient and tries to interact with the cards during the flip animation. I am unsure how to make the program stop all event listeners while the animation plays. Although this glitchy behavior is not ideal, it is not a priority to fix because the glitch is mainly visual and doesn’t interfere with the user’s ability to play the game. I instead will focus on implementing features that will make the project feel more complete and revisit this problem if there is time. (Which, let’s be real, there probably won’t be.)</p>
+        
+        </section>
+    </article>
+</body>
+<footer>
+    <a href="https://validator.w3.org/check?uri=referer">Valid HTML</a>
+    <a href="https://jigsaw.w3.org/css-validator/check/referer">Valid CSS</a>
+</footer>
+</html>
