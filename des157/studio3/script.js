@@ -40,7 +40,15 @@
       return deck;
     }
 
+    function flip_sound(){
+      console.log("flip!")
+      const flip = new Audio("flip_sound.mp3");
+      flip.loop = false;
+      flip.play();
+    }
+
     function animate_flip(card_img){
+      flip_sound();
       //Animation frames per second
       const fps = 12;
       //Timeout delay in milliseconds
@@ -333,53 +341,59 @@
     const deck = build_deck();
     const spread = document.getElementById("spread");
     
-    for (let i = 0; i < 3; i++){
-      const drawn_card = draw_a_card();
-      //spread.innerHTML += `${drawn_card.image}`;
-      spread.innerHTML += `<img src= "images/BACK/0001.png" id = "${drawn_card.name}" class = "card">`;
-    }
-    
-    //For each of the cards in the document's spread, add an eventlistener
-    document.querySelectorAll('.card').forEach(function(card_img, index){
-      //Play animation for each card image
+    spread.innerHTML= "Click anywhere to deal the cards";
 
-      deck.forEach(card=>{
-        if (card.name == card_img.id){
-          setTimeout(animate_flip, 1000*index, card_img);
+    document.addEventListener("click", event=>
+    {
+      spread.innerHTML= "";
+      for (let i = 0; i < 3; i++){
+        const drawn_card = draw_a_card();
+        //spread.innerHTML += `${drawn_card.image}`;
+        spread.innerHTML += `<img src= "images/BACK/0001.png" id = "${drawn_card.name}" class = "card">`;
+      }
+      
+      //For each of the cards in the document's spread, add an eventlistener
+      document.querySelectorAll('.card').forEach(function(card_img, index){
+        //Play animation for each card image
 
-          card_img.addEventListener('click', event => {
-            console.log(`card clicked: ${card_img.id}`)
-            const next_branch = tree[current_branch].options[card_img.id]
+        deck.forEach(card=>{
+          if (card.name == card_img.id){
+            setTimeout(function(){animate_flip(card_img);}, 1000*index);
 
-            //Check if there are cards in the deck that have not yet been drawn
-            let cards_remaining = false;
+            card_img.addEventListener('click', event => {
+              console.log(`card clicked: ${card_img.id}`)
+              const next_branch = tree[current_branch].options[card_img.id]
 
-            deck.forEach(card=>{
-            if (card.drawn === false){
-              cards_remaining = true;
+              //Check if there are cards in the deck that have not yet been drawn
+              let cards_remaining = false;
+
+              deck.forEach(card=>{
+              if (card.drawn === false){
+                cards_remaining = true;
+                }
+              });
+        
+              if (cards_remaining){
+              //Draw a new card
+              const drawn_card = draw_a_card();
+              card_img.id=drawn_card.name;
+              animate_flip(card_img);
+              }
+              else {
+                flip_sound();
+                document.getElementById('spread').removeChild(card_img);
+              }
+
+              if (typeof next_branch != "undefined"){
+                //Change the text according to the next branch
+                current_branch = next_branch;
+                tree[current_branch].display_text();
               }
             });
-      
-            if (cards_remaining){
-            //Draw a new card
-            const drawn_card = draw_a_card();
-            card_img.id=drawn_card.name;
-            animate_flip(card_img);
-            }
-            else {
-              document.getElementById('spread').removeChild(card_img);
-            }
-
-            if (typeof next_branch != "undefined"){
-              //Change the text according to the next branch
-              current_branch = next_branch;
-              tree[current_branch].display_text();
-            }
-          });
+          }
         }
-      }
-    );
-    
+      );
+  });
 
-  }); 
+  }, {once:true}); 
 })();
