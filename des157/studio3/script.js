@@ -337,21 +337,17 @@
     };
 
     let current_branch = "start";
-    setTimeout(function(){tree[current_branch].display_text();}, 2800);
     const deck = build_deck();
     const spread = document.getElementById("spread");
     
-    spread.innerHTML= "Click anywhere to deal the cards";
+    for (let i = 0; i < 3; i++){
+      const drawn_card = draw_a_card();
+      spread.innerHTML += `<img src= "images/BACK/0001.png" id = "${drawn_card.name}" class = "card">`;
+    }
 
     document.addEventListener("click", event=>
     {
-      spread.innerHTML= "";
-      for (let i = 0; i < 3; i++){
-        const drawn_card = draw_a_card();
-        //spread.innerHTML += `${drawn_card.image}`;
-        spread.innerHTML += `<img src= "images/BACK/0001.png" id = "${drawn_card.name}" class = "card">`;
-      }
-      
+      setTimeout(function(){tree[current_branch].display_text();}, 2800);     
       //For each of the cards in the document's spread, add an eventlistener
       document.querySelectorAll('.card').forEach(function(card_img, index){
         //Play animation for each card image
